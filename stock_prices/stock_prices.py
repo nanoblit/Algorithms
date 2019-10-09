@@ -3,7 +3,18 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
+  # compare earilier and later prices
+  # return the greatest profit
+
+  maxProfit = -9999
+  for idx, firstPrice in enumerate(prices):
+    for secondPriceIdx in range(idx + 1, len(prices)):
+      secondPrice = prices[secondPriceIdx]
+      newProfit = secondPrice - firstPrice
+      if newProfit > maxProfit:
+        maxProfit = newProfit
+
+  return maxProfit
 
 
 if __name__ == '__main__':
