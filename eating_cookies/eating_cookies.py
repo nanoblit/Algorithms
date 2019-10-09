@@ -5,13 +5,14 @@ import sys
 # The cache parameter is here for if you want to implement
 # a solution that is more efficient than the naive 
 # recursive solution
-def eating_cookies_with_cache(n, cache={}):
+
+def eating_cookies(n, cache={}):
   if n <= 1:
-    return (1, cache)
-
+    return 1
+  
   if n in cache:
-    return (cache[n], cache)
-
+    return cache[n]
+  
   combinations = 0
   
   combinations += eating_cookies(n - 1)
@@ -19,12 +20,9 @@ def eating_cookies_with_cache(n, cache={}):
     combinations += eating_cookies(n - 2)
   if n > 2:
     combinations += eating_cookies(n - 3)
-
+  
   cache[n] = combinations
-  return (combinations, cache)
-
-def eating_cookies(n, cache={}):
-  return eating_cookies_with_cache(n, cache)[0]
+  return combinations
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:

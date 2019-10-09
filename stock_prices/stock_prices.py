@@ -3,7 +3,7 @@
 import argparse
 
 def find_max_profit(prices):
-  # compare earilier and later prices
+  # compare earlier and later prices
   # return the greatest profit
 
   maxProfit = -9999
