@@ -2,8 +2,22 @@
 
 import sys
 
+def mc(amount, current_denomination, denominations):
+  # if amount = 0 return 1
+  if amount == 0:
+    return 1
+  # add combinations of everything:
+  # call itself in a loop with good amount - denomination if amound - denomination >= 0
+  combinations = 0
+  for denomination in denominations:
+    new_amount = amount - denomination
+    if new_amount >= 0 and denomination <= current_denomination:
+      combinations += mc(new_amount, denomination, denominations)
+  # return combinations
+  return combinations
+
 def making_change(amount, denominations):
-  pass 
+  return mc(amount, max(denominations), denominations)
 
 
 if __name__ == "__main__":
